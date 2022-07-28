@@ -3,8 +3,15 @@ DRF endpoints to parse Excel
 
 ---
 
+### Technologies
+Python 3, Django 4, Django Rest Framework 3.13, SQLite
+
+---
+
 ### Install requirements
 ```shell
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
