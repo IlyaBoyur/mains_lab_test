@@ -19,6 +19,7 @@ pip install -r requirements.txt
 
 ### Start project
 ```shell
+python backend/manage.py migrate
 python backend/manage.py runserver
 ```
 
