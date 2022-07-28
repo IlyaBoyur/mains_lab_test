@@ -3,11 +3,13 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+PROJECT_DIR = os.path.join(BASE_DIR, '../')
+
 SECRET_KEY = os.environ.get(
     'DJANGO_SECRET_KEY',
     'django-insecure-))nkb4e!s94gypl0v8*rls=q&&qyxwrcyk@#o966r11exs(=q5'
 )
-DEBUG = os.environ.get('DJANGO_DEBUG') == 'True'
+DEBUG = os.environ.get('DJANGO_DEBUG') == 'True' or True
 ALLOWED_HOSTS = ['*']
 
 
@@ -19,6 +21,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # third party
+    'django_filters',
+    'rest_framework',
+    # apps
+    'bills',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +65,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -109,3 +116,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'backend_media')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DATA_DIR = os.path.join(PROJECT_DIR, 'data')
