@@ -22,9 +22,9 @@ python backend/manage.py runserver
 #### POST -> /parse_bills/ - to start bill parsing (local 'bills.xlsx' file)
 #### GET -> /bills/
 
-Filtering:
-* client_name
-* client_org - 
+Filtering via path variables:
+* client_name - by client`s name
+* client_org - by client`s organisation
 
 ### Author
 [Ilya Boyur](https://github.com/IlyaBoyur)
