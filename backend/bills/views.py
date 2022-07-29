@@ -1,7 +1,6 @@
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import status
 from rest_framework.decorators import api_view
-from rest_framework.exceptions import ValidationError
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 
@@ -28,7 +27,7 @@ def parse_bills(request):
                     date=bill['date'],
                     service=bill['service'],
                 )
-            except ValidationError:
+            except:
                 pass
         return Response({'result': 'Bills successfully parsed'},
                         status=status.HTTP_201_CREATED)
