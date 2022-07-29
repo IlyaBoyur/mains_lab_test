@@ -22,7 +22,9 @@ def parse_excel(xlsx_file: str) -> List[Dict[str, Any]]:
     return items
 
 
-def get_bills_list(xlsx=f'{DATA_DIR}/bills.xlsx'):
+def get_bills_list(
+    xlsx: str = f'{DATA_DIR}/bills.xlsx'
+) -> List[Dict[str, Any]]:
     """Retrieve and filter bills"""
     bills = parse_excel(f'{DATA_DIR}/bills.xlsx')
     return [bill for bill in bills
