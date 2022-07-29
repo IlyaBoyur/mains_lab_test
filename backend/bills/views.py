@@ -39,4 +39,4 @@ class BillsAPIView(ListAPIView):
     queryset = Bill.objects.all()
     serializer_class = BillSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['client_name','client_org']
+    filterset_fields = ['client_name', 'client_org']
