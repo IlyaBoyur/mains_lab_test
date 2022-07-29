@@ -9,6 +9,10 @@ from .models import Bill
 from .utils import get_bills_list
 
 
+def clean_sum(sum):
+    return sum.replace(',', '.') if isinstance(sum, str) else sum
+
+
 @api_view(['POST'])
 def parse_bills(request):
     bills = get_bills_list()
@@ -19,7 +23,7 @@ def parse_bills(request):
                     client_name=bill['client_name'],
                     client_org=bill['client_org'],
                     account_number=bill['№'],
-                    sum=bill['sum'],
+                    sum=clean_sum(bill['sum']),
                     date=bill['date'],
                     service=bill['service'],
                 )
